@@ -1,6 +1,6 @@
 public abstract class Conta {
 	
-	protected double saldo;	
+	private double saldo;	
 	private int agencia;
 	private int numero;	
 	private Cliente titular;
@@ -19,20 +19,16 @@ public abstract class Conta {
 	public double saldo() {
 		return this.saldo;
 	}
+
+	public void addSaldo(double valor){
+		this.saldo += valor;
+	}
 	
 	public abstract void deposita(double valor); 
 	
 	
-	public boolean saca(double valor) {
-		if (valor<=0) {
-			return false;
-		} else if (this.saldo >= valor) {
-			this.saldo -= valor;
-			return true;
-		} else {
-			return false;
-		}
-	}
+	public abstract boolean saca(double valor);
+		
 
 	public boolean transfere(
 		double valor, Conta destino) {
