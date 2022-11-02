@@ -3,23 +3,26 @@ public class ContaPoupanca extends Conta {
         super(numero, agencia);}
 
 
+        @Override
+        public void deposita(double valor) {
+            if (valor>0)
+            {
+                addSaldo(valor);
+            }
+            }
+                
+            
     @Override
-    public void deposita(double valor) {
-		if (valor>0)
-			this.saldo += valor;
+        public boolean saca(double valor) {
+            double valorASacar = valor + 0.01;
+            if (valor<=0) {
+                return false;
+            } else if (saldo() >= valor) {
+                addSaldo(valorASacar*-1);
+                return true;
+            } else {
+                return false;
+            }
         }
-			
-        
-	@Override
-	public boolean saca(double valor) {
-		if (valor<=0) {
-			return false;
-		} else if (this.saldo >= valor) {
-			this.saldo -= valor;
-			return true;
-		} else {
-			return false;
-		}
-	}
     
 }
