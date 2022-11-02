@@ -6,7 +6,7 @@ public class TestaReferencias {
 		Gerente g1 = new Gerente("A","1");
 		g1.setSalario(5000);
 		
-		Funcionario f1 = new Funcionario("B","2");
+		Funcionario f1 = new Gerente("B","2");
 		f1.setSalario(2500);
 		
 		ControleBonificacao controle = 
