@@ -3,26 +3,27 @@ public class ContaCorrente extends Conta{
         super(numero, agencia);}
 
 
+
     @Override
     public void deposita(double valor) {
 		if (valor>0)
-			this.saldo += valor;
+        {
+            addSaldo(valor);
+        }
         }
 			
         
-	@Override
+@Override
 	public boolean saca(double valor) {
+        double valorASacar = valor + 0.02;
 		if (valor<=0) {
 			return false;
-		} else if (this.saldo >= valor) {
-			this.saldo -= valor;
+		} else if (saldo() >= valor) {
+			addSaldo(valorASacar*-1);
 			return true;
 		} else {
 			return false;
 		}
 	}
-
-
-    
 
 }
